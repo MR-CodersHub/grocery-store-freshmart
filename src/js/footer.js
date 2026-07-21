@@ -27,7 +27,7 @@ const FreshMartFooter = (() => {
                 <path d="M17 8C8 10 5.9 16.17 3.82 21.34l1.89.66.95-2.3c.48.17.98.3 1.34.3C19 20 22 3 22 3c-1 2-8 2.25-13 3.25S2 11.5 2 13.5s1.75 3.75 1.75 3.75C7 8 17 8 17 8z"/>
               </svg>
             </span>
-            Fresh<span class="text-brand-500">Mart</span>
+            <span class="text-xl font-bold tracking-tight">Fresh<span class="text-brand-500">Mart</span></span>
           </a>
           <p class="mt-4 text-sm">Fresh groceries from local farms, delivered to your door — every day.</p>
           <div class="mt-5 flex gap-3">
@@ -58,22 +58,22 @@ const FreshMartFooter = (() => {
         <div>
           <h4 class="text-white font-semibold mb-4">Company</h4>
           <ul class="space-y-2 text-sm">
+            <li><a href="${base}index.html" class="hover:text-white transition">Home</a></li>
+            <li><a href="${base}public/pages/home-2.html" class="hover:text-white transition">Home 2</a></li>
             <li><a href="${base}public/pages/about.html" class="hover:text-white transition">About us</a></li>
             <li><a href="${base}public/pages/services.html" class="hover:text-white transition">Services</a></li>
-            <li><a href="${base}public/pages/pricing.html" class="hover:text-white transition">Pricing</a></li>
             <li><a href="${base}public/pages/blog.html" class="hover:text-white transition">Blog</a></li>
-            <li><a href="${base}public/pages/coming-soon.html" class="hover:text-white transition">Careers</a></li>
           </ul>
         </div>
         <div>
           <h4 class="text-white font-semibold mb-4">Help</h4>
           <ul class="space-y-2 text-sm">
-            <li><a href="${base}public/pages/contact.html" class="hover:text-white transition">Contact us</a></li>
+            <li><a href="${base}public/pages/contact.html" class="hover:text-white transition">Contact us</a></li> 
+            <li><a href="${base}public/pages/pricing.html" class="hover:text-white transition">Pricing</a></li>
             <li><a href="${base}public/pages/FAQ.html" class="hover:text-white transition">FAQs</a></li>
             <li><a href="${base}public/pages/terms-of-service.html" class="hover:text-white transition">Terms of Service</a></li>
             <li><a href="${base}public/pages/privacy-policy.html" class="hover:text-white transition">Privacy policy</a></li>
-            <li><a href="${base}public/pages/404.html" class="hover:text-white transition">404 Page</a></li>
-          </ul>
+           </ul>
         </div>
       </div>
       <div class="border-t border-white/10">

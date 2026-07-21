@@ -9,7 +9,7 @@ const FreshMartData = (() => {
     { id: 1, name: 'Organic Avocados', category: 'produce', price: 4.99, oldPrice: 6.49, rating: 4.8, reviews: 124, img: 'https://images.unsplash.com/photo-1519162808019-7de1683fa2ad?w=500&q=80', tag: 'Organic' },
     { id: 2, name: 'Fresh Strawberries', category: 'produce', price: 3.49, oldPrice: 4.99, rating: 4.9, reviews: 211, img: 'https://images.unsplash.com/photo-1518635017498-87f514b751ba?w=500&q=80', tag: '-30%' },
     { id: 3, name: 'Sourdough Bread', category: 'bakery', price: 5.99, oldPrice: null, rating: 4.7, reviews: 88, img: 'https://images.unsplash.com/photo-1509440159596-0249088772ff?w=500&q=80', tag: 'New' },
-    { id: 4, name: 'Free-Range Eggs (12)', category: 'dairy', price: 6.49, oldPrice: 7.99, rating: 4.8, reviews: 156, img: 'https://images.unsplash.com/photo-1569288063643-5d29ad6ce7b6?w=500&q=80', tag: 'Best' },
+    { id: 4, name: 'Free-Range Eggs (12)', category: 'dairy', price: 6.49, oldPrice: 7.99, rating: 4.8, reviews: 156, img: '../../assets/img/eggs.jpg', tag: 'Best' },
     { id: 5, name: 'Crisp Honeycrisp Apples', category: 'produce', price: 2.99, oldPrice: null, rating: 4.6, reviews: 72, img: 'https://images.unsplash.com/photo-1568702846914-96b305d2aaeb?w=500&q=80', tag: null },
     { id: 6, name: 'Greek Yogurt (500g)', category: 'dairy', price: 4.49, oldPrice: 5.99, rating: 4.7, reviews: 94, img: 'https://images.unsplash.com/photo-1488477181946-6428a0291777?w=500&q=80', tag: '-25%' },
     { id: 7, name: 'Wild Blueberries', category: 'produce', price: 5.99, oldPrice: null, rating: 4.9, reviews: 130, img: 'https://images.unsplash.com/photo-1498557850523-fd3d118b962e?w=500&q=80', tag: 'Local' },
@@ -18,10 +18,10 @@ const FreshMartData = (() => {
     { id: 10, name: 'Almond Milk (1L)', category: 'dairy', price: 3.99, oldPrice: 4.99, rating: 4.5, reviews: 102, img: 'https://images.unsplash.com/photo-1550583724-b2692b85b150?w=500&q=80', tag: '-20%' },
     { id: 11, name: 'Whole Wheat Bread', category: 'bakery', price: 4.49, oldPrice: null, rating: 4.7, reviews: 76, img: 'https://images.unsplash.com/photo-1549931319-a545dcf3bc73?w=500&q=80', tag: null },
     { id: 12, name: 'Fresh Orange Juice (1L)', category: 'beverages', price: 5.49, oldPrice: 6.99, rating: 4.8, reviews: 143, img: 'https://images.unsplash.com/photo-1621506289937-a8e4df240d0b?w=500&q=80', tag: '-21%' },
-    { id: 13, name: 'Granola Mix (500g)', category: 'pantry', price: 6.99, oldPrice: null, rating: 4.6, reviews: 55, img: 'https://images.unsplash.com/photo-1517093728432-a0440f8d45af?w=500&q=80', tag: 'New' },
+    { id: 13, name: 'Granola Mix (500g)', category: 'pantry', price: 6.99, oldPrice: null, rating: 4.6, reviews: 55, img: '../../assets/img/granola.jpg', tag: 'New' },
     { id: 14, name: 'Dark Chocolate Bar', category: 'snacks', price: 3.49, oldPrice: null, rating: 4.9, reviews: 189, img: 'https://images.unsplash.com/photo-1549007994-cb92caebd54b?w=500&q=80', tag: 'Best' },
     { id: 15, name: 'Sparkling Water (6-pack)', category: 'beverages', price: 4.99, oldPrice: 5.99, rating: 4.4, reviews: 67, img: 'https://images.unsplash.com/photo-1523362628745-0c100150b504?w=500&q=80', tag: '-17%' },
-    { id: 16, name: 'Mixed Nuts (300g)', category: 'snacks', price: 7.99, oldPrice: null, rating: 4.7, reviews: 112, img: 'https://images.unsplash.com/photo-1536590158217-7232db84f2a0?w=500&q=80', tag: null }
+    { id: 16, name: 'Mixed Nuts (300g)', category: 'snacks', price: 7.99, oldPrice: null, rating: 4.7, reviews: 112, img: '../../assets/img/mixed-nuts.jpg', tag: null }
   ];
 
   const SERVICES = [
