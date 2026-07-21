@@ -32,7 +32,7 @@ const FreshMartNavbar = (() => {
 
     const header = `
     <header id="site-header" class="sticky top-0 z-40 bg-white/90 dark:bg-gray-900/90 backdrop-blur border-b border-gray-100 dark:border-gray-800">
-      <div class="max-w-7xl mx-auto px-4 py-3 flex items-center gap-4">
+      <div class="navbar-container max-w-7xl mx-auto px-4 py-3 flex items-center gap-4">
         <a href="${base}index.html" class="flex items-center gap-2 shrink-0" aria-label="FreshMart home">
           <span class="grid place-items-center w-9 h-9 rounded-full bg-brand-600 text-white">
             <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true">

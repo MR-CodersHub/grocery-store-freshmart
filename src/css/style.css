@@ -264,7 +264,59 @@ html.dark ::-webkit-scrollbar-thumb { background: #475569; }
     padding-left: 0.75rem;
     padding-right: 0.75rem;
   }
+
+  /* Navbar adjustments for mobile viewports */
+  .navbar-container {
+    padding-left: 0.5rem !important;
+    padding-right: 0.5rem !important;
+    gap: 0.25rem !important;
+  }
+
+  .navbar-container a[aria-label="FreshMart home"] {
+    gap: 0.25rem !important;
+  }
+
+  .navbar-container a[aria-label="FreshMart home"] span.grid {
+    width: 1.75rem !important;
+    height: 1.75rem !important;
+  }
+
+  .navbar-container a[aria-label="FreshMart home"] span.grid svg {
+    width: 1.1rem !important;
+    height: 1.1rem !important;
+  }
+
+  .navbar-container a[aria-label="FreshMart home"] span.text-xl {
+    font-size: 0.95rem !important;
+  }
+
+  .navbar-container .ml-auto,
+  .navbar-container .md\:ml-0 {
+    gap: 0.1rem !important;
+  }
+
+  .navbar-container button,
+  .navbar-container a#cart-btn {
+    width: 1.85rem !important;
+    height: 1.85rem !important;
+  }
+
+  .navbar-container button svg,
+  .navbar-container a#cart-btn svg {
+    width: 1.1rem !important;
+    height: 1.1rem !important;
+  }
+
+  .navbar-container #cart-count {
+    min-width: 12px !important;
+    height: 12px !important;
+    font-size: 7px !important;
+    top: -2px !important;
+    right: -2px !important;
+  }
 }
+
+
 
 /* ─────────── PRINT STYLES ─────────── */
 @media print {
