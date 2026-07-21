@@ -274,7 +274,7 @@
             items.forEach(function (item) {
                 var product = getProduct(item.id);
                 var name = product ? product.name : 'Product';
-                var image = product ? (product.image || product.thumbnail || '') : '';
+                var image = product ? (product.img || product.image || '') : '';
                 var price = item.price || (product ? product.price : 0);
                 var qty = item.qty || 1;
                 var lineTotal = price * qty;
@@ -348,13 +348,13 @@
 
             if (target.classList.contains('qty-plus')) {
                 var items = FreshMartCart.getCartItems();
-                var item = items.find(function (i) { return i.id === id; });
+                var item = items.find(function (i) { return String(i.id) === String(id); });
                 var currentQty = item ? (item.qty || 1) : 1;
                 FreshMartCart.updateQty(id, currentQty + 1);
                 renderCart();
             } else if (target.classList.contains('qty-minus')) {
                 var items2 = FreshMartCart.getCartItems();
-                var item2 = items2.find(function (i) { return i.id === id; });
+                var item2 = items2.find(function (i) { return String(i.id) === String(id); });
                 var currentQty2 = item2 ? (item2.qty || 1) : 1;
                 if (currentQty2 <= 1) {
                     FreshMartCart.removeItem(id);
@@ -405,14 +405,14 @@
 
             var result = FreshMartCart.placeOrder(address);
 
-            if (result && result.orderId) {
+            if (result && result.id) {
                 cartItemsEl.innerHTML = '';
                 cartEmptyEl.classList.add('hidden');
                 orderSummaryEl.classList.add('hidden');
                 checkoutFormEl.classList.add('hidden');
                 orderSuccessEl.classList.remove('hidden');
-                orderSuccessMsg.textContent = 'Order placed! Order ID: ' + result.orderId;
-                orderSuccessLink.href = 'order-tracking.html?id=' + result.orderId;
+                orderSuccessMsg.textContent = 'Order placed! Order ID: ' + result.id;
+                orderSuccessLink.href = 'order-tracking.html?id=' + result.id;
             } else {
                 formError.textContent = 'Something went wrong. Please try again.';
                 formError.classList.remove('hidden');
@@ -435,7 +435,7 @@
             var four = all.slice(0, 4);
             var html = '';
             four.forEach(function (p) {
-                var imgSrc = p.image || p.thumbnail || '';
+                var imgSrc = p.img || p.image || '';
                 html += '<div class="bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 group">';
                 html += '<div class="relative overflow-hidden">';
                 if (imgSrc) {
@@ -459,8 +459,8 @@
             var btn = e.target.closest('.related-add-btn');
             if (!btn) return;
             var id = btn.getAttribute('data-id');
-            var price = parseFloat(btn.getAttribute('data-price'));
-            FreshMartCart.addItem(id, price, 1);
+            FreshMartCart.addItem(id, 1);
+            renderCart();
             btn.textContent = 'Added!';
             btn.classList.add('bg-green-600');
             setTimeout(function () {

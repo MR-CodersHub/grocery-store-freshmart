@@ -312,17 +312,17 @@ const FreshMartData = (() => {
   ];
 
   const TEAM_MEMBERS = [
-    { name: 'Elena Rodriguez', role: 'Founder & CEO', img: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=300&q=80', bio: 'Former food scientist with a passion for sustainable agriculture. Elena founded FreshMart to make farm-fresh food accessible to everyone.' },
-    { name: 'David Park', role: 'Head of Operations', img: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&q=80', bio: 'Logistics expert who ensures every delivery reaches you on time and in perfect condition.' },
-    { name: 'Aisha Johnson', role: 'Head of Marketing', img: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=300&q=80', bio: 'Creative strategist who connects FreshMart with communities that value fresh, local food.' },
-    { name: 'Marco Rossi', role: 'Head Chef Partner', img: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=300&q=80', bio: 'Award-winning chef who designs our meal kits and curates recipe collections for our customers.' }
+    { name: 'Elena Rodriguez', role: 'Founder & CEO', img: '../../assets/img/buyer1.jpg', bio: 'Former food scientist with a passion for sustainable agriculture. Elena founded FreshMart to make farm-fresh food accessible to everyone.' },
+    { name: 'David Park', role: 'Head of Operations', img: '../../assets/img/buyer5.jpg', bio: 'Logistics expert who ensures every delivery reaches you on time and in perfect condition.' },
+    { name: 'Aisha Johnson', role: 'Head of Marketing', img: '../../assets/img/buyer3.jpg', bio: 'Creative strategist who connects FreshMart with communities that value fresh, local food.' },
+    { name: 'Elena Rossi', role: 'Head Chef Partner', img: '../../assets/img/buyer4.jpg', bio: 'Award-winning chef who designs our meal kits and curates recipe collections for our customers.' }
   ];
 
   const TESTIMONIALS = [
-    { name: 'Sarah Mitchell', role: 'Member since 2023', img: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&q=80', rating: 5, text: 'The produce is always incredibly fresh — better than any supermarket I\'ve been to. Delivery is fast and the drivers are friendly.' },
-    { name: 'James Carter', role: 'Pro Member', img: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80', rating: 5, text: 'Switched from a big chain and never looked back. The weekly deals are actually good, and the app makes reordering effortless.' },
-    { name: 'Priya Raman', role: 'Member since 2024', img: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=100&q=80', rating: 5, text: 'I love knowing exactly where my food comes from. FreshMart\'s transparency about their local farms is what made me a loyal customer.' },
-    { name: 'Tom Bradley', role: 'Family Plan Member', img: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&q=80', rating: 5, text: 'The Family plan is incredible value. Free meal kits, priority delivery, and my kids love the variety. Worth every penny.' },
+    { name: 'Sarah Mitchell', role: 'Member since 2023', img: '../../assets/img/buyer1.jpg', rating: 5, text: 'The produce is always incredibly fresh — better than any supermarket I\'ve been to. Delivery is fast and the drivers are friendly.' },
+    { name: 'James Carter', role: 'Pro Member', img: '../../assets/img/buyer2.jpg', rating: 5, text: 'Switched from a big chain and never looked back. The weekly deals are actually good, and the app makes reordering effortless.' },
+    { name: 'Priya Raman', role: 'Member since 2024', img: '../../assets/img/buyer3.jpg', rating: 5, text: 'I love knowing exactly where my food comes from. FreshMart\'s transparency about their local farms is what made me a loyal customer.' },
+    { name: 'Tara Krish', role: 'Family Plan Member', img: '../../assets/img/buyer4.jpg', rating: 5, text: 'The Family plan is incredible value. Free meal kits, priority delivery, and my kids love the variety. Worth every penny.' },
     { name: 'Nina Kowalski', role: 'Member since 2025', img: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&q=80', rating: 4, text: 'Great selection of organic products. The quality is consistently high and the customer support team is very responsive.' },
     { name: 'Ahmed Hassan', role: 'Pro Member', img: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&q=80', rating: 5, text: 'The meal kits have transformed our weeknight dinners. Pre-portioned ingredients, easy recipes, and restaurant-quality results every time.' }
   ];

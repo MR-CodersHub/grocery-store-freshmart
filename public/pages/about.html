@@ -242,21 +242,6 @@
       </section>
 
       <!-- ════════════════════════════════════════════
-           SECTION 5 — TESTIMONIALS (dynamic from data)
-           ════════════════════════════════════════════ -->
-      <section class="py-16 md:py-20 bg-cream dark:bg-gray-800">
-        <div class="max-w-7xl mx-auto px-4">
-          <div class="text-center mb-10 reveal">
-            <p class="text-brand-600 font-semibold text-sm uppercase tracking-wider">Loved by our community</p>
-            <h2 class="text-3xl md:text-4xl font-extrabold mt-1">What Customers Say</h2>
-          </div>
-          <div id="testimonials-grid" class="grid md:grid-cols-3 gap-6">
-            <!-- Dynamically rendered from FreshMartData.TESTIMONIALS -->
-          </div>
-        </div>
-      </section>
-
-      <!-- ════════════════════════════════════════════
            SECTION 6 — CTA / JOIN US
            ════════════════════════════════════════════ -->
       <section class="pb-16 md:pb-20 reveal">
@@ -301,7 +286,7 @@
           FreshMartData.TEAM_MEMBERS.forEach(function (member) {
             teamHTML += '<div class="bg-cream dark:bg-gray-800 rounded-3xl overflow-hidden text-center reveal">' +
               '<div class="relative h-48 overflow-hidden">' +
-                '<img src="' + member.img + '" alt="' + member.name + '" class="w-full h-full object-cover hover:scale-105 transition duration-500" loading="lazy" />' +
+                '<img src="' + member.img + '" alt="' + member.name + '" class="w-full h-full object-fill hover:scale-105 transition duration-500" loading="lazy" />' +
               '</div>' +
               '<div class="p-5">' +
                 '<h4 class="font-bold text-lg">' + member.name + '</h4>' +
@@ -338,6 +323,8 @@
           });
           testimonialsGrid.innerHTML = testimonialsHTML;
         }
+
+        if (typeof window.initReveal === 'function') { window.initReveal(); }
       });
     </script>
   </body>

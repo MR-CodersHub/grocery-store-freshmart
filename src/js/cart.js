@@ -25,7 +25,7 @@ const FreshMartCart = (() => {
   function addItem(productId, qty) {
     qty = qty || 1;
     const cart = getCart();
-    const existing = cart.find(function (item) { return item.id === productId; });
+    const existing = cart.find(function (item) { return String(item.id) === String(productId); });
     if (existing) {
       existing.qty += qty;
     } else {
@@ -35,7 +35,7 @@ const FreshMartCart = (() => {
   }
 
   function removeItem(productId) {
-    var cart = getCart().filter(function (item) { return item.id !== productId; });
+    var cart = getCart().filter(function (item) { return String(item.id) !== String(productId); });
     saveCart(cart);
   }
 
@@ -45,7 +45,7 @@ const FreshMartCart = (() => {
       return;
     }
     var cart = getCart();
-    var item = cart.find(function (item) { return item.id === productId; });
+    var item = cart.find(function (item) { return String(item.id) === String(productId); });
     if (item) {
       item.qty = qty;
       saveCart(cart);
@@ -64,7 +64,7 @@ const FreshMartCart = (() => {
   function getSubtotal() {
     var products = typeof FreshMartData !== 'undefined' ? FreshMartData.PRODUCTS : [];
     return getCart().reduce(function (sum, item) {
-      var product = products.find(function (p) { return p.id === item.id; });
+      var product = products.find(function (p) { return String(p.id) === String(item.id); });
       return sum + (product ? product.price * item.qty : 0);
     }, 0);
   }
@@ -77,6 +77,7 @@ const FreshMartCart = (() => {
     return Math.round(subtotal * 0.08 * 100) / 100;
   }
 
+  // Same-day delivery limit, etc
   function getTotal() {
     var subtotal = getSubtotal();
     return Math.round((subtotal + getDeliveryFee(subtotal) + getTax(subtotal)) * 100) / 100;
@@ -86,7 +87,7 @@ const FreshMartCart = (() => {
     var products = typeof FreshMartData !== 'undefined' ? FreshMartData.PRODUCTS : [];
     var cart = getCart();
     return cart.map(function (item) {
-      var product = products.find(function (p) { return p.id === item.id; });
+      var product = products.find(function (p) { return String(p.id) === String(item.id); });
       if (!product) return null;
       return Object.assign({}, product, { qty: item.qty, lineTotal: Math.round(product.price * item.qty * 100) / 100 });
     }).filter(Boolean);

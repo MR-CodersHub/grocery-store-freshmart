@@ -13,6 +13,15 @@ const FreshMartNavbar = (() => {
     return './';
   }
 
+  function isActive(href) {
+    const currentPath = window.location.pathname;
+    // Normalize: strip query strings and trailing slashes for comparison
+    const normalize = (p) => p.split('?')[0].replace(/\/+$/, '');
+    const current = normalize(currentPath);
+    const target = normalize(new URL(href, window.location.href).pathname);
+    return current === target;
+  }
+
   function render() {
     const base = getBasePath();
     const container = document.getElementById('navbar-placeholder');
@@ -33,13 +42,13 @@ const FreshMartNavbar = (() => {
           <span class="text-xl font-bold tracking-tight">Fresh<span class="text-brand-600">Mart</span></span>
         </a>
 
-        <nav class="hidden lg:flex items-center gap-7 ml-6 text-sm font-medium text-gray-700 dark:text-gray-300" aria-label="Primary">
-          <a href="${base}index.html" class="hover:text-brand-600 transition">Home</a>
-          <a href="${base}public/pages/home-2.html" class="hover:text-brand-600 transition">Home 2</a>
-          <a href="${base}public/pages/about.html" class="hover:text-brand-600 transition">About</a>
-          <a href="${base}public/pages/products.html" class="hover:text-brand-600 transition">Products</a>
-          <a href="${base}public/pages/blog.html" class="hover:text-brand-600 transition">Blog</a>
-          <a href="${base}public/pages/contact.html" class="hover:text-brand-600 transition">Contact</a>
+        <nav class="hidden lg:flex items-center gap-7 ml-6 text-sm font-medium text-gray-700 dark:text-gray-300" aria-label="Primary" id="desktop-nav">
+          <a href="${base}index.html" class="nav-link relative pb-0.5 hover:text-brand-600 transition" data-href="${base}index.html">Home</a>
+          <a href="${base}public/pages/home-2.html" class="nav-link relative pb-0.5 hover:text-brand-600 transition" data-href="${base}public/pages/home-2.html">Home 2</a>
+          <a href="${base}public/pages/about.html" class="nav-link relative pb-0.5 hover:text-brand-600 transition" data-href="${base}public/pages/about.html">About</a>
+          <a href="${base}public/pages/products.html" class="nav-link relative pb-0.5 hover:text-brand-600 transition" data-href="${base}public/pages/products.html">Products</a>
+          <a href="${base}public/pages/blog.html" class="nav-link relative pb-0.5 hover:text-brand-600 transition" data-href="${base}public/pages/blog.html">Blog</a>
+          <a href="${base}public/pages/contact.html" class="nav-link relative pb-0.5 hover:text-brand-600 transition" data-href="${base}public/pages/contact.html">Contact</a>
         </nav>
 
         <div class="hidden md:flex flex-1 max-w-md ml-auto">
@@ -99,14 +108,14 @@ const FreshMartNavbar = (() => {
       </div>
 
       <div id="mobile-menu" class="lg:hidden hidden border-t border-gray-100 dark:border-gray-800 bg-white dark:bg-gray-900">
-        <nav class="px-4 py-3 flex flex-col gap-1 text-sm font-medium" aria-label="Mobile">
-          <a href="${base}index.html" class="px-3 py-2 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 text-gray-700 dark:text-gray-200">Home</a>
-          <a href="${base}public/pages/home-2.html" class="px-3 py-2 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 text-gray-700 dark:text-gray-200">Home 2</a>
-          <a href="${base}public/pages/about.html" class="px-3 py-2 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 text-gray-700 dark:text-gray-200">About</a>
-          <a href="${base}public/pages/products.html" class="px-3 py-2 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 text-gray-700 dark:text-gray-200">Products</a>
-          <a href="${base}public/pages/blog.html" class="px-3 py-2 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 text-gray-700 dark:text-gray-200">Blog</a>
-          <a href="${base}public/pages/pricing.html" class="px-3 py-2 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 text-gray-700 dark:text-gray-200">Pricing</a>
-          <a href="${base}public/pages/contact.html" class="px-3 py-2 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 text-gray-700 dark:text-gray-200">Contact</a>
+        <nav class="px-4 py-3 flex flex-col gap-1 text-sm font-medium" aria-label="Mobile" id="mobile-nav">
+          <a href="${base}index.html" class="mobile-nav-link px-3 py-2 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 text-gray-700 dark:text-gray-200" data-href="${base}index.html">Home</a>
+          <a href="${base}public/pages/home-2.html" class="mobile-nav-link px-3 py-2 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 text-gray-700 dark:text-gray-200" data-href="${base}public/pages/home-2.html">Home 2</a>
+          <a href="${base}public/pages/about.html" class="mobile-nav-link px-3 py-2 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 text-gray-700 dark:text-gray-200" data-href="${base}public/pages/about.html">About</a>
+          <a href="${base}public/pages/products.html" class="mobile-nav-link px-3 py-2 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 text-gray-700 dark:text-gray-200" data-href="${base}public/pages/products.html">Products</a>
+          <a href="${base}public/pages/blog.html" class="mobile-nav-link px-3 py-2 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 text-gray-700 dark:text-gray-200" data-href="${base}public/pages/blog.html">Blog</a>
+          <a href="${base}public/pages/pricing.html" class="mobile-nav-link px-3 py-2 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 text-gray-700 dark:text-gray-200" data-href="${base}public/pages/pricing.html">Pricing</a>
+          <a href="${base}public/pages/contact.html" class="mobile-nav-link px-3 py-2 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 text-gray-700 dark:text-gray-200" data-href="${base}public/pages/contact.html">Contact</a>
           <div class="relative mt-2">
             <input id="search-input-mobile" type="search" placeholder="Search groceries..."
               class="w-full pl-10 pr-4 py-2 rounded-full border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 text-sm focus:outline-none text-gray-900 dark:text-gray-100" />
@@ -117,6 +126,25 @@ const FreshMartNavbar = (() => {
     </header>`;
 
     container.innerHTML = promoBar + header;
+
+    // Active nav link highlighting
+    document.querySelectorAll('.nav-link').forEach(link => {
+      if (isActive(link.getAttribute('data-href'))) {
+        link.classList.add('text-brand-600', 'dark:text-brand-400', 'font-semibold');
+        link.setAttribute('aria-current', 'page');
+        // Underline indicator
+        const indicator = document.createElement('span');
+        indicator.className = 'absolute bottom-0 left-0 right-0 h-[2px] rounded-full bg-brand-600 dark:bg-brand-400';
+        link.appendChild(indicator);
+      }
+    });
+    document.querySelectorAll('.mobile-nav-link').forEach(link => {
+      if (isActive(link.getAttribute('data-href'))) {
+        link.classList.add('bg-brand-50', 'dark:bg-brand-900/30', 'text-brand-700', 'dark:text-brand-400', 'font-semibold');
+        link.classList.remove('text-gray-700', 'dark:text-gray-200');
+        link.setAttribute('aria-current', 'page');
+      }
+    });
 
     // Profile dropdown
     const profileBtn = document.getElementById('profile-btn');
