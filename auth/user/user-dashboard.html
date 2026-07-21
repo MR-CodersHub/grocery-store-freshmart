@@ -1,0 +1,461 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#16a34a" />
+    <meta name="description" content="Your FreshMart dashboard — manage orders, favorites, subscriptions, and deliveries." />
+    <title>My Dashboard — FreshMart</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            fontFamily: { sans: ['Poppins', 'sans-serif'], display: ['Pacifico', 'cursive'] },
+            colors: {
+              brand: { 50: '#f0fdf4', 100: '#dcfce7', 200: '#bbf7d0', 300: '#86efac', 400: '#4ade80', 500: '#22c55e', 600: '#16a34a', 700: '#15803d', 800: '#166534', 900: '#14532d' },
+              cream: '#fefce8',
+              ink: '#1f2937',
+            },
+            boxShadow: { soft: '0 10px 30px -10px rgba(22, 163, 74, 0.25)' },
+          },
+        },
+      };
+    </script>
+    <link rel="stylesheet" href="../../src/css/style.css" />
+  </head>
+  <body class="font-sans text-ink bg-white dark:bg-gray-900 dark:text-gray-100 antialiased">
+    <div class="flex h-screen overflow-hidden">
+      <aside id="sidebar" class="fixed lg:static inset-y-0 left-0 z-30 w-64 bg-white dark:bg-gray-800 border-r border-gray-100 dark:border-gray-700 flex flex-col transition-transform duration-300 -translate-x-full lg:translate-x-0">
+        <div class="flex items-center justify-between px-5 py-4 border-b border-gray-100 dark:border-gray-700">
+          <a href="../../index.html" class="flex items-center gap-2" aria-label="FreshMart home">
+            <span class="grid place-items-center w-9 h-9 rounded-full bg-brand-600 text-white">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true">
+                <path d="M17 8C8 10 5.9 16.17 3.82 21.34l1.89.66.95-2.3c.48.17.98.3 1.34.3C19 20 22 3 22 3c-1 2-8 2.25-13 3.25S2 11.5 2 13.5s1.75 3.75 1.75 3.75C7 8 17 8 17 8z"/>
+              </svg>
+            </span>
+            <span class="text-lg font-bold tracking-tight">Fresh<span class="text-brand-600">Mart</span></span>
+          </a>
+          <button id="sidebar-close" class="lg:hidden grid place-items-center w-8 h-8 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 transition text-gray-500">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          </button>
+        </div>
+        <nav class="flex-1 overflow-y-auto px-3 py-4 space-y-1">
+          <a href="#" class="sidebar-link active flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm transition">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+            My Dashboard
+          </a>
+          <a href="#" class="sidebar-link flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-700 transition">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/><path d="M15 18H9"/><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14"/><circle cx="17" cy="18" r="2"/><circle cx="7" cy="18" r="2"/></svg>
+            My Orders
+          </a>
+          <a href="#" class="sidebar-link flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-700 transition">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.5-2.5 3-5 3-7 0-3-2-5-5-5-1.5 0-3 .7-4 2-1-.3-2.5-.5-4-.5C6 3 4 5 4 8c0 2 1.5 4.5 3 7"/><path d="M17 21h-8"/><path d="M12 21v-7"/><path d="M6 12c-1.5-1.5-3-4-3-6 0-2 1-4 3-4 1.5 0 3 .8 4 2 1-.4 2.5-1 4-1 2 0 4 1 4 3 0 2-1.5 4.5-3 6"/></svg>
+            Favorites
+          </a>
+          <a href="#" class="sidebar-link flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-700 transition">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Delivery Addresses
+          </a>
+          <a href="#" class="sidebar-link flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-700 transition">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+            Subscriptions
+          </a>
+          <a href="#" class="sidebar-link flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-700 transition">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+            Settings
+          </a>
+        </nav>
+        <div class="border-t border-gray-100 dark:border-gray-700 p-4">
+          <a href="../../index.html" class="flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm text-gray-600 dark:text-gray-400 hover:text-red-600 dark:hover:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/20 transition">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+            Logout
+          </a>
+          <div class="flex items-center gap-3 mt-3 px-4 py-2">
+            <div class="w-9 h-9 rounded-full bg-pink-100 dark:bg-pink-900/30 grid place-items-center text-pink-600 dark:text-pink-400 font-bold text-sm">S</div>
+            <div class="text-sm">
+              <div class="font-semibold text-ink dark:text-gray-100">Sarah Johnson</div>
+              <div class="text-xs text-gray-500 dark:text-gray-400">sarah@example.com</div>
+            </div>
+          </div>
+        </div>
+      </aside>
+
+      <div id="sidebar-overlay" class="fixed inset-0 bg-black/40 z-20 hidden lg:hidden"></div>
+
+      <div class="flex-1 flex flex-col min-w-0">
+        <header class="sticky top-0 z-10 bg-white/90 dark:bg-gray-900/90 backdrop-blur border-b border-gray-100 dark:border-gray-700">
+          <div class="flex items-center gap-4 px-4 md:px-6 py-3">
+            <button id="sidebar-toggle" class="lg:hidden grid place-items-center w-10 h-10 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition text-gray-600 dark:text-gray-300" aria-label="Toggle sidebar">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+            </button>
+            <div class="flex-1 max-w-md">
+              <div class="relative">
+                <input type="search" placeholder="Search products, orders..."
+                  class="w-full pl-10 pr-4 py-2 rounded-full border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 focus:bg-white dark:focus:bg-gray-700 focus:border-brand-500 focus:ring-2 focus:ring-brand-100 outline-none text-sm transition text-gray-900 dark:text-gray-100" />
+                <svg class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+              </div>
+            </div>
+            <div class="flex items-center gap-1 ml-auto">
+              <button id="theme-toggle" class="grid place-items-center w-10 h-10 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition text-gray-600 dark:text-gray-300" aria-label="Toggle theme"></button>
+              <button class="relative grid place-items-center w-10 h-10 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition text-gray-600 dark:text-gray-300" aria-label="Notifications">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+                <span class="absolute top-1 right-1 w-2 h-2 rounded-full bg-red-500"></span>
+              </button>
+              <div class="relative">
+                <button id="profile-btn" class="flex items-center gap-2 pl-2 pr-3 py-1.5 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition" aria-expanded="false">
+                  <div class="w-8 h-8 rounded-full bg-pink-100 dark:bg-pink-900/30 grid place-items-center text-pink-600 dark:text-pink-400 font-bold text-xs">S</div>
+                  <span class="hidden sm:inline text-sm font-medium text-gray-700 dark:text-gray-300">Sarah</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-gray-400"><polyline points="6 9 12 15 18 9"/></svg>
+                </button>
+                <div id="profile-dropdown" class="hidden absolute right-0 mt-2 w-56 bg-white dark:bg-gray-800 rounded-2xl shadow-soft border border-gray-100 dark:border-gray-700 py-2 z-50">
+                  <a href="#" class="flex items-center gap-3 px-4 py-2.5 text-sm hover:bg-gray-50 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-200 transition">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                    My Profile
+                  </a>
+                  <a href="#" class="flex items-center gap-3 px-4 py-2.5 text-sm hover:bg-gray-50 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-200 transition">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+                    Settings
+                  </a>
+                  <div class="border-t border-gray-100 dark:border-gray-700 my-1"></div>
+                  <a href="../../index.html" class="flex items-center gap-3 px-4 py-2.5 text-sm hover:bg-gray-50 dark:hover:bg-gray-700 text-red-600 transition">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+                    Logout
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <main class="flex-1 overflow-y-auto p-4 md:p-6 space-y-6">
+          <section>
+            <h1 class="text-2xl md:text-3xl font-extrabold text-ink dark:text-white">My Dashboard</h1>
+            <p class="text-gray-500 dark:text-gray-400 text-sm mt-1">Welcome, Sarah!</p>
+          </section>
+
+          <section class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+            <div class="bg-white dark:bg-gray-800 rounded-2xl border border-gray-100 dark:border-gray-700 p-5">
+              <div class="flex items-center justify-between mb-3">
+                <div class="w-11 h-11 rounded-xl bg-green-50 dark:bg-green-900/30 grid place-items-center text-brand-600">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/><path d="M15 18H9"/><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14"/><circle cx="17" cy="18" r="2"/><circle cx="7" cy="18" r="2"/></svg>
+                </div>
+              </div>
+              <div class="text-2xl font-bold text-ink dark:text-white">24</div>
+              <div class="text-sm text-gray-500 dark:text-gray-400">Total Orders</div>
+            </div>
+            <div class="bg-white dark:bg-gray-800 rounded-2xl border border-gray-100 dark:border-gray-700 p-5">
+              <div class="flex items-center justify-between mb-3">
+                <div class="w-11 h-11 rounded-xl bg-pink-50 dark:bg-pink-900/30 grid place-items-center text-pink-600">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.5-2.5 3-5 3-7 0-3-2-5-5-5-1.5 0-3 .7-4 2-1-.3-2.5-.5-4-.5C6 3 4 5 4 8c0 2 1.5 4.5 3 7"/><path d="M17 21h-8"/><path d="M12 21v-7"/><path d="M6 12c-1.5-1.5-3-4-3-6 0-2 1-4 3-4 1.5 0 3 .8 4 2 1-.4 2.5-1 4-1 2 0 4 1 4 3 0 2-1.5 4.5-3 6"/></svg>
+                </div>
+              </div>
+              <div class="text-2xl font-bold text-ink dark:text-white">18</div>
+              <div class="text-sm text-gray-500 dark:text-gray-400">Favorites</div>
+            </div>
+            <div class="bg-white dark:bg-gray-800 rounded-2xl border border-gray-100 dark:border-gray-700 p-5">
+              <div class="flex items-center justify-between mb-3">
+                <div class="w-11 h-11 rounded-xl bg-amber-50 dark:bg-amber-900/30 grid place-items-center text-amber-600">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+                </div>
+              </div>
+              <div class="text-2xl font-bold text-ink dark:text-white">1</div>
+              <div class="text-sm text-gray-500 dark:text-gray-400">Active Subscriptions</div>
+            </div>
+            <div class="bg-white dark:bg-gray-800 rounded-2xl border border-gray-100 dark:border-gray-700 p-5">
+              <div class="flex items-center justify-between mb-3">
+                <div class="w-11 h-11 rounded-xl bg-purple-50 dark:bg-purple-900/30 grid place-items-center text-purple-600">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                </div>
+              </div>
+              <div class="text-2xl font-bold text-ink dark:text-white">2,450</div>
+              <div class="text-sm text-gray-500 dark:text-gray-400">Reward Points</div>
+            </div>
+          </section>
+
+          <section class="bg-white dark:bg-gray-800 rounded-2xl border border-gray-100 dark:border-gray-700 overflow-hidden">
+            <div class="flex items-center justify-between p-5 pb-3">
+              <h2 class="text-lg font-bold text-ink dark:text-white">Recent Orders</h2>
+              <a href="#" class="text-sm text-brand-600 hover:text-brand-700 font-semibold">View All</a>
+            </div>
+            <div class="overflow-x-auto">
+              <table class="w-full text-sm">
+                <thead>
+                  <tr class="border-t border-gray-100 dark:border-gray-700 text-gray-500 dark:text-gray-400 text-xs uppercase tracking-wider">
+                    <th class="text-left px-5 py-3 font-semibold">Order ID</th>
+                    <th class="text-left px-5 py-3 font-semibold">Items</th>
+                    <th class="text-left px-5 py-3 font-semibold">Total</th>
+                    <th class="text-left px-5 py-3 font-semibold">Status</th>
+                    <th class="text-left px-5 py-3 font-semibold">Date</th>
+                    <th class="text-left px-5 py-3 font-semibold"></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="border-t border-gray-100 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700/50 transition">
+                    <td class="px-5 py-3 font-medium text-ink dark:text-white">#ORD-1024</td>
+                    <td class="px-5 py-3">Avocados, Strawberries, Bread</td>
+                    <td class="px-5 py-3">$64.20</td>
+                    <td class="px-5 py-3"><span class="px-2 py-1 rounded-full text-xs font-semibold bg-green-50 dark:bg-green-900/30 text-green-600 dark:text-green-400">Delivered</span></td>
+                    <td class="px-5 py-3 text-gray-500">Jul 21, 2026</td>
+                    <td class="px-5 py-3"><button class="px-3 py-1 rounded-full bg-brand-50 dark:bg-brand-900/30 text-brand-600 dark:text-brand-400 text-xs font-semibold hover:bg-brand-100 transition">Reorder</button></td>
+                  </tr>
+                  <tr class="border-t border-gray-100 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700/50 transition">
+                    <td class="px-5 py-3 font-medium text-ink dark:text-white">#ORD-1021</td>
+                    <td class="px-5 py-3">Milk, Eggs, Yogurt, Granola</td>
+                    <td class="px-5 py-3">$38.75</td>
+                    <td class="px-5 py-3"><span class="px-2 py-1 rounded-full text-xs font-semibold bg-green-50 dark:bg-green-900/30 text-green-600 dark:text-green-400">Delivered</span></td>
+                    <td class="px-5 py-3 text-gray-500">Jul 18, 2026</td>
+                    <td class="px-5 py-3"><button class="px-3 py-1 rounded-full bg-brand-50 dark:bg-brand-900/30 text-brand-600 dark:text-brand-400 text-xs font-semibold hover:bg-brand-100 transition">Reorder</button></td>
+                  </tr>
+                  <tr class="border-t border-gray-100 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700/50 transition">
+                    <td class="px-5 py-3 font-medium text-ink dark:text-white">#ORD-1018</td>
+                    <td class="px-5 py-3">Sourdough, Cheese, Apples</td>
+                    <td class="px-5 py-3">$52.30</td>
+                    <td class="px-5 py-3"><span class="px-2 py-1 rounded-full text-xs font-semibold bg-yellow-50 dark:bg-yellow-900/30 text-yellow-600 dark:text-yellow-400">Processing</span></td>
+                    <td class="px-5 py-3 text-gray-500">Jul 15, 2026</td>
+                    <td class="px-5 py-3"><button class="px-3 py-1 rounded-full bg-brand-50 dark:bg-brand-900/30 text-brand-600 dark:text-brand-400 text-xs font-semibold hover:bg-brand-100 transition">Reorder</button></td>
+                  </tr>
+                  <tr class="border-t border-gray-100 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700/50 transition">
+                    <td class="px-5 py-3 font-medium text-ink dark:text-white">#ORD-1015</td>
+                    <td class="px-5 py-3">Orange Juice, Nuts, Chocolate</td>
+                    <td class="px-5 py-3">$28.99</td>
+                    <td class="px-5 py-3"><span class="px-2 py-1 rounded-full text-xs font-semibold bg-green-50 dark:bg-green-900/30 text-green-600 dark:text-green-400">Delivered</span></td>
+                    <td class="px-5 py-3 text-gray-500">Jul 12, 2026</td>
+                    <td class="px-5 py-3"><button class="px-3 py-1 rounded-full bg-brand-50 dark:bg-brand-900/30 text-brand-600 dark:text-brand-400 text-xs font-semibold hover:bg-brand-100 transition">Reorder</button></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <section>
+            <div class="flex items-center justify-between mb-4">
+              <h2 class="text-lg font-bold text-ink dark:text-white">Recommended For You</h2>
+              <a href="#" class="text-sm text-brand-600 hover:text-brand-700 font-semibold">View All</a>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+              <div class="bg-white dark:bg-gray-800 rounded-2xl border border-gray-100 dark:border-gray-700 overflow-hidden hover:shadow-soft transition">
+                <div class="aspect-square overflow-hidden bg-gray-50 dark:bg-gray-700">
+                  <img src="https://images.unsplash.com/photo-1519162808019-7de1683fa2ad?w=300&q=80" alt="Organic Avocados" class="w-full h-full object-cover" loading="lazy" />
+                </div>
+                <div class="p-3">
+                  <h3 class="font-semibold text-sm text-ink dark:text-white">Organic Avocados</h3>
+                  <div class="text-brand-600 font-bold text-sm mt-1">$4.99</div>
+                  <button class="mt-2 w-full py-1.5 rounded-full bg-brand-600 hover:bg-brand-700 text-white text-xs font-semibold transition btn-pop">Add to Cart</button>
+                </div>
+              </div>
+              <div class="bg-white dark:bg-gray-800 rounded-2xl border border-gray-100 dark:border-gray-700 overflow-hidden hover:shadow-soft transition">
+                <div class="aspect-square overflow-hidden bg-gray-50 dark:bg-gray-700">
+                  <img src="https://images.unsplash.com/photo-1498557850523-fd3d118b962e?w=300&q=80" alt="Wild Blueberries" class="w-full h-full object-cover" loading="lazy" />
+                </div>
+                <div class="p-3">
+                  <h3 class="font-semibold text-sm text-ink dark:text-white">Wild Blueberries</h3>
+                  <div class="text-brand-600 font-bold text-sm mt-1">$5.99</div>
+                  <button class="mt-2 w-full py-1.5 rounded-full bg-brand-600 hover:bg-brand-700 text-white text-xs font-semibold transition btn-pop">Add to Cart</button>
+                </div>
+              </div>
+              <div class="bg-white dark:bg-gray-800 rounded-2xl border border-gray-100 dark:border-gray-700 overflow-hidden hover:shadow-soft transition">
+                <div class="aspect-square overflow-hidden bg-gray-50 dark:bg-gray-700">
+                  <img src="https://images.unsplash.com/photo-1488477181946-6428a0291777?w=300&q=80" alt="Greek Yogurt" class="w-full h-full object-cover" loading="lazy" />
+                </div>
+                <div class="p-3">
+                  <h3 class="font-semibold text-sm text-ink dark:text-white">Greek Yogurt (500g)</h3>
+                  <div class="text-brand-600 font-bold text-sm mt-1">$4.49</div>
+                  <button class="mt-2 w-full py-1.5 rounded-full bg-brand-600 hover:bg-brand-700 text-white text-xs font-semibold transition btn-pop">Add to Cart</button>
+                </div>
+              </div>
+              <div class="bg-white dark:bg-gray-800 rounded-2xl border border-gray-100 dark:border-gray-700 overflow-hidden hover:shadow-soft transition">
+                <div class="aspect-square overflow-hidden bg-gray-50 dark:bg-gray-700">
+                  <img src="https://images.unsplash.com/photo-1549007994-cb92caebd54b?w=300&q=80" alt="Dark Chocolate" class="w-full h-full object-cover" loading="lazy" />
+                </div>
+                <div class="p-3">
+                  <h3 class="font-semibold text-sm text-ink dark:text-white">Dark Chocolate Bar</h3>
+                  <div class="text-brand-600 font-bold text-sm mt-1">$3.49</div>
+                  <button class="mt-2 w-full py-1.5 rounded-full bg-brand-600 hover:bg-brand-700 text-white text-xs font-semibold transition btn-pop">Add to Cart</button>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="bg-white dark:bg-gray-800 rounded-2xl border border-gray-100 dark:border-gray-700 p-5">
+            <div class="flex items-start justify-between">
+              <div>
+                <h2 class="text-lg font-bold text-ink dark:text-white">Active Subscription</h2>
+                <p class="text-sm text-gray-500 dark:text-gray-400">FreshMart Pro — renewed Jul 20, 2026</p>
+              </div>
+              <span class="px-3 py-1 rounded-full text-xs font-semibold bg-brand-50 dark:bg-brand-900/30 text-brand-600 dark:text-brand-400">Active</span>
+            </div>
+            <div class="mt-4 grid grid-cols-2 md:grid-cols-4 gap-3">
+              <div class="bg-gray-50 dark:bg-gray-700 rounded-xl px-4 py-3 text-center">
+                <div class="text-lg font-bold text-brand-600">10%</div>
+                <div class="text-xs text-gray-500 dark:text-gray-400">Off every order</div>
+              </div>
+              <div class="bg-gray-50 dark:bg-gray-700 rounded-xl px-4 py-3 text-center">
+                <div class="text-lg font-bold text-brand-600">Free</div>
+                <div class="text-xs text-gray-500 dark:text-gray-400">Delivery</div>
+              </div>
+              <div class="bg-gray-50 dark:bg-gray-700 rounded-xl px-4 py-3 text-center">
+                <div class="text-lg font-bold text-brand-600">1hr</div>
+                <div class="text-xs text-gray-500 dark:text-gray-400">Priority delivery</div>
+              </div>
+              <div class="bg-gray-50 dark:bg-gray-700 rounded-xl px-4 py-3 text-center">
+                <div class="text-lg font-bold text-brand-600">$9.99</div>
+                <div class="text-xs text-gray-500 dark:text-gray-400">Per month</div>
+              </div>
+            </div>
+            <button class="mt-4 px-5 py-2 rounded-full border border-gray-200 dark:border-gray-600 text-sm font-semibold text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 transition">Manage Subscription</button>
+          </section>
+
+          <section class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="bg-white dark:bg-gray-800 rounded-2xl border border-gray-100 dark:border-gray-700 p-5">
+              <div class="flex items-center justify-between mb-4">
+                <h2 class="text-lg font-bold text-ink dark:text-white">Delivery Addresses</h2>
+                <button class="text-brand-600 hover:text-brand-700 text-sm font-semibold">+ Add New</button>
+              </div>
+              <div class="space-y-3">
+                <div class="flex items-start gap-3 p-3 rounded-xl bg-gray-50 dark:bg-gray-700">
+                  <div class="w-9 h-9 rounded-full bg-brand-100 dark:bg-brand-900/30 grid place-items-center text-brand-600 shrink-0">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                  </div>
+                  <div class="flex-1 min-w-0">
+                    <div class="font-semibold text-sm text-ink dark:text-white">Home</div>
+                    <div class="text-xs text-gray-500 dark:text-gray-400 truncate">123 Green Street, Apt 4B, New York, NY 10001</div>
+                  </div>
+                  <div class="flex gap-1 shrink-0">
+                    <button class="p-1.5 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-600 text-gray-400 transition" title="Edit">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+                    </button>
+                    <button class="p-1.5 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-600 text-gray-400 transition" title="Delete">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
+                    </button>
+                  </div>
+                </div>
+                <div class="flex items-start gap-3 p-3 rounded-xl bg-gray-50 dark:bg-gray-700">
+                  <div class="w-9 h-9 rounded-full bg-blue-100 dark:bg-blue-900/30 grid place-items-center text-blue-600 shrink-0">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="14" rx="2" ry="2"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                  </div>
+                  <div class="flex-1 min-w-0">
+                    <div class="font-semibold text-sm text-ink dark:text-white">Office</div>
+                    <div class="text-xs text-gray-500 dark:text-gray-400 truncate">456 Madison Ave, Suite 1200, New York, NY 10022</div>
+                  </div>
+                  <div class="flex gap-1 shrink-0">
+                    <button class="p-1.5 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-600 text-gray-400 transition" title="Edit">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+                    </button>
+                    <button class="p-1.5 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-600 text-gray-400 transition" title="Delete">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-white dark:bg-gray-800 rounded-2xl border border-gray-100 dark:border-gray-700 p-5">
+              <h2 class="text-lg font-bold text-ink dark:text-white mb-4">Recent Activity</h2>
+              <div class="space-y-4">
+                <div class="flex items-start gap-3">
+                  <div class="w-8 h-8 rounded-full bg-green-50 dark:bg-green-900/30 grid place-items-center text-brand-600 shrink-0 mt-0.5">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/><path d="M15 18H9"/><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14"/></svg>
+                  </div>
+                  <div>
+                    <div class="text-sm font-medium text-ink dark:text-white">Order #ORD-1024 delivered</div>
+                    <div class="text-xs text-gray-500 dark:text-gray-400">Today, 10:30 AM</div>
+                  </div>
+                </div>
+                <div class="flex items-start gap-3">
+                  <div class="w-8 h-8 rounded-full bg-blue-50 dark:bg-blue-900/30 grid place-items-center text-blue-600 shrink-0 mt-0.5">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+                  </div>
+                  <div>
+                    <div class="text-sm font-medium text-ink dark:text-white">Subscription renewed — FreshMart Pro</div>
+                    <div class="text-xs text-gray-500 dark:text-gray-400">Yesterday, 2:15 PM</div>
+                  </div>
+                </div>
+                <div class="flex items-start gap-3">
+                  <div class="w-8 h-8 rounded-full bg-pink-50 dark:bg-pink-900/30 grid place-items-center text-pink-600 shrink-0 mt-0.5">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.5-2.5 3-5 3-7 0-3-2-5-5-5-1.5 0-3 .7-4 2-1-.3-2.5-.5-4-.5C6 3 4 5 4 8c0 2 1.5 4.5 3 7"/></svg>
+                  </div>
+                  <div>
+                    <div class="text-sm font-medium text-ink dark:text-white">Added 3 items to Favorites</div>
+                    <div class="text-xs text-gray-500 dark:text-gray-400">2 days ago, 6:45 PM</div>
+                  </div>
+                </div>
+                <div class="flex items-start gap-3">
+                  <div class="w-8 h-8 rounded-full bg-amber-50 dark:bg-amber-900/30 grid place-items-center text-amber-600 shrink-0 mt-0.5">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                  </div>
+                  <div>
+                    <div class="text-sm font-medium text-ink dark:text-white">Earned 120 reward points</div>
+                    <div class="text-xs text-gray-500 dark:text-gray-400">3 days ago, 11:20 AM</div>
+                  </div>
+                </div>
+                <div class="flex items-start gap-3">
+                  <div class="w-8 h-8 rounded-full bg-gray-50 dark:bg-gray-700 grid place-items-center text-gray-400 shrink-0 mt-0.5">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                  </div>
+                  <div>
+                    <div class="text-sm font-medium text-ink dark:text-white">Changed password for security</div>
+                    <div class="text-xs text-gray-500 dark:text-gray-400">5 days ago, 9:00 AM</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </main>
+      </div>
+    </div>
+
+    <script src="../../src/js/data.js"></script>
+    <script src="../../src/js/navbar.js"></script>
+    <script src="../../src/js/footer.js"></script>
+    <script src="../../src/js/theme.js"></script>
+    <script src="../../src/js/form-validation.js"></script>
+    <script src="../../src/js/blog.js"></script>
+    <script src="../../src/js/script.js"></script>
+
+    <script>
+      (() => {
+        'use strict';
+
+        const sidebar = document.getElementById('sidebar');
+        const overlay = document.getElementById('sidebar-overlay');
+        const toggleBtn = document.getElementById('sidebar-toggle');
+        const closeBtn = document.getElementById('sidebar-close');
+
+        function openSidebar() {
+          sidebar.classList.remove('-translate-x-full');
+          overlay.classList.remove('hidden');
+        }
+        function closeSidebar() {
+          sidebar.classList.add('-translate-x-full');
+          overlay.classList.add('hidden');
+        }
+        if (toggleBtn) toggleBtn.addEventListener('click', openSidebar);
+        if (closeBtn) closeBtn.addEventListener('click', closeSidebar);
+        if (overlay) overlay.addEventListener('click', closeSidebar);
+
+        const profileBtn = document.getElementById('profile-btn');
+        const profileDropdown = document.getElementById('profile-dropdown');
+        if (profileBtn && profileDropdown) {
+          profileBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            profileDropdown.classList.toggle('hidden');
+            profileBtn.setAttribute('aria-expanded', String(!profileDropdown.classList.contains('hidden')));
+          });
+          document.addEventListener('click', (e) => {
+            if (!profileDropdown.contains(e.target) && e.target !== profileBtn) {
+              profileDropdown.classList.add('hidden');
+              profileBtn.setAttribute('aria-expanded', 'false');
+            }
+          });
+        }
+
+        FreshMartTheme.init();
+      })();
+    </script>
+  </body>
+</html>
