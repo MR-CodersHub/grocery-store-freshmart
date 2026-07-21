@@ -11,21 +11,13 @@
             darkMode: 'class',
             theme: {
                 extend: {
+                    fontFamily: { sans: ['Poppins', 'sans-serif'], display: ['Pacifico', 'cursive'] },
                     colors: {
-                        brand: {
-                            green: '#2d6a4f',
-                            'green-light': '#40916c',
-                            'green-dark': '#1b4332',
-                            yellow: '#f4a261',
-                            'yellow-light': '#f9c74f',
-                            cream: '#fefae0',
-                        },
-                        ink: '#2b2d42',
+                        brand: { 50: '#f0fdf4', 100: '#dcfce7', 200: '#bbf7d0', 300: '#86efac', 400: '#4ade80', 500: '#22c55e', 600: '#16a34a', 700: '#15803d', 800: '#166534', 900: '#14532d' },
+                        cream: '#fefce8',
+                        ink: '#1f2937',
                     },
-                    fontFamily: {
-                        sans: ['Poppins', 'sans-serif'],
-                        pacifico: ['Pacifico', 'cursive'],
-                    },
+                    boxShadow: { soft: '0 10px 30px -10px rgba(22, 163, 74, 0.25)' },
                 },
             },
         };
@@ -58,7 +50,7 @@
                         </div>
                         <h2 class="text-2xl font-bold mb-2">Your cart is empty</h2>
                         <p class="text-gray-500 dark:text-gray-400 mb-8 max-w-sm mx-auto">Looks like you haven't added any fresh goodies yet. Start browsing and fill your cart!</p>
-                        <a href="../../index.html" class="inline-flex items-center gap-2 bg-brand-green hover:bg-brand-green-dark text-white font-semibold px-8 py-3 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl">
+                        <a href="../../index.html" class="inline-flex items-center gap-2 bg-brand-600 hover:bg-brand-700 text-white font-semibold px-8 py-3 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl">
                             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 100 4 2 2 0 000-4z"/></svg>
                             Continue Shopping
                         </a>
@@ -67,46 +59,46 @@
                     <!-- Checkout Form -->
                     <div id="checkout-form" class="hidden mt-10">
                         <h2 class="text-2xl font-bold mb-6 flex items-center gap-2">
-                            <svg class="w-6 h-6 text-brand-green" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                            <svg class="w-6 h-6 text-brand-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
                             Shipping Address
                         </h2>
                         <form id="shipping-form" class="space-y-5" novalidate>
                             <div>
                                 <label for="ship-name" class="block text-sm font-medium mb-1">Full Name *</label>
                                 <input id="ship-name" type="text" required placeholder="John Doe"
-                                    class="w-full px-4 py-3 rounded-xl border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 focus:ring-2 focus:ring-brand-green focus:border-transparent outline-none transition-all">
+                                    class="w-full px-4 py-3 rounded-xl border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 focus:ring-2 focus:ring-brand-600 focus:border-transparent outline-none transition-all">
                             </div>
                             <div>
                                 <label for="ship-address" class="block text-sm font-medium mb-1">Street Address *</label>
                                 <input id="ship-address" type="text" required placeholder="123 Fresh Street"
-                                    class="w-full px-4 py-3 rounded-xl border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 focus:ring-2 focus:ring-brand-green focus:border-transparent outline-none transition-all">
+                                    class="w-full px-4 py-3 rounded-xl border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 focus:ring-2 focus:ring-brand-600 focus:border-transparent outline-none transition-all">
                             </div>
                             <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
                                 <div>
                                     <label for="ship-city" class="block text-sm font-medium mb-1">City *</label>
                                     <input id="ship-city" type="text" required placeholder="New York"
-                                        class="w-full px-4 py-3 rounded-xl border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 focus:ring-2 focus:ring-brand-green focus:border-transparent outline-none transition-all">
+                                        class="w-full px-4 py-3 rounded-xl border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 focus:ring-2 focus:ring-brand-600 focus:border-transparent outline-none transition-all">
                                 </div>
                                 <div>
                                     <label for="ship-state" class="block text-sm font-medium mb-1">State *</label>
                                     <input id="ship-state" type="text" required placeholder="NY"
-                                        class="w-full px-4 py-3 rounded-xl border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 focus:ring-2 focus:ring-brand-green focus:border-transparent outline-none transition-all">
+                                        class="w-full px-4 py-3 rounded-xl border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 focus:ring-2 focus:ring-brand-600 focus:border-transparent outline-none transition-all">
                                 </div>
                                 <div>
                                     <label for="ship-zip" class="block text-sm font-medium mb-1">Zip Code *</label>
                                     <input id="ship-zip" type="text" required placeholder="10001"
-                                        class="w-full px-4 py-3 rounded-xl border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 focus:ring-2 focus:ring-brand-green focus:border-transparent outline-none transition-all">
+                                        class="w-full px-4 py-3 rounded-xl border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 focus:ring-2 focus:ring-brand-600 focus:border-transparent outline-none transition-all">
                                 </div>
                             </div>
                             <div>
                                 <label for="ship-phone" class="block text-sm font-medium mb-1">Phone Number *</label>
                                 <input id="ship-phone" type="tel" required placeholder="(555) 123-4567"
-                                    class="w-full px-4 py-3 rounded-xl border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 focus:ring-2 focus:ring-brand-green focus:border-transparent outline-none transition-all">
+                                    class="w-full px-4 py-3 rounded-xl border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 focus:ring-2 focus:ring-brand-600 focus:border-transparent outline-none transition-all">
                             </div>
                             <div>
                                 <label for="ship-notes" class="block text-sm font-medium mb-1">Delivery Notes</label>
                                 <textarea id="ship-notes" rows="3" placeholder="E.g. Leave at the door, ring doorbell..."
-                                    class="w-full px-4 py-3 rounded-xl border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 focus:ring-2 focus:ring-brand-green focus:border-transparent outline-none transition-all resize-none"></textarea>
+                                    class="w-full px-4 py-3 rounded-xl border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 focus:ring-2 focus:ring-brand-600 focus:border-transparent outline-none transition-all resize-none"></textarea>
                             </div>
                         </form>
                     </div>
@@ -118,7 +110,7 @@
                         </div>
                         <h2 class="text-2xl font-bold mb-2">Order Placed Successfully!</h2>
                         <p id="order-success-msg" class="text-gray-600 dark:text-gray-400 mb-6"></p>
-                        <a id="order-success-link" href="#" class="inline-flex items-center gap-2 bg-brand-green hover:bg-brand-green-dark text-white font-semibold px-8 py-3 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl">
+                        <a id="order-success-link" href="#" class="inline-flex items-center gap-2 bg-brand-600 hover:bg-brand-700 text-white font-semibold px-8 py-3 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl">
                             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
                             Track Your Order
                         </a>
@@ -145,16 +137,16 @@
                             <hr class="border-gray-200 dark:border-gray-700 my-3">
                             <div class="flex justify-between text-lg">
                                 <span class="font-bold">Total</span>
-                                <span id="summary-total" class="font-bold text-brand-green">$0.00</span>
+                                <span id="summary-total" class="font-bold text-brand-600">$0.00</span>
                             </div>
                         </div>
-                        <button id="btn-place-order" type="button" class="mt-6 w-full bg-brand-green hover:bg-brand-green-dark text-white font-bold py-3.5 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center gap-2">
+                        <button id="btn-place-order" type="button" class="mt-6 w-full bg-brand-600 hover:bg-brand-700 text-white font-bold py-3.5 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center gap-2">
                             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
                             Place Order
                         </button>
                         <p id="form-error" class="hidden mt-3 text-sm text-red-500 text-center"></p>
                         <div class="mt-5 text-center">
-                            <a href="../../index.html" class="text-sm text-brand-green hover:underline font-medium">Continue Shopping</a>
+                            <a href="../../index.html" class="text-sm text-brand-600 hover:underline font-medium">Continue Shopping</a>
                         </div>
                     </div>
                 </div>
@@ -167,8 +159,8 @@
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
                     <div class="flex flex-col items-center text-center gap-3">
-                        <div class="w-14 h-14 rounded-full bg-brand-green/10 flex items-center justify-center">
-                            <svg class="w-7 h-7 text-brand-green" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+                        <div class="w-14 h-14 rounded-full bg-brand-100 flex items-center justify-center">
+                            <svg class="w-7 h-7 text-brand-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
                         </div>
                         <div>
                             <h4 class="font-semibold text-sm">Secure Checkout</h4>
@@ -176,8 +168,8 @@
                         </div>
                     </div>
                     <div class="flex flex-col items-center text-center gap-3">
-                        <div class="w-14 h-14 rounded-full bg-brand-green/10 flex items-center justify-center">
-                            <svg class="w-7 h-7 text-brand-green" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4"/></svg>
+                        <div class="w-14 h-14 rounded-full bg-brand-100 flex items-center justify-center">
+                            <svg class="w-7 h-7 text-brand-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4"/></svg>
                         </div>
                         <div>
                             <h4 class="font-semibold text-sm">Free Delivery Over $40</h4>
@@ -185,8 +177,8 @@
                         </div>
                     </div>
                     <div class="flex flex-col items-center text-center gap-3">
-                        <div class="w-14 h-14 rounded-full bg-brand-green/10 flex items-center justify-center">
-                            <svg class="w-7 h-7 text-brand-green" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+                        <div class="w-14 h-14 rounded-full bg-brand-100 flex items-center justify-center">
+                            <svg class="w-7 h-7 text-brand-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
                         </div>
                         <div>
                             <h4 class="font-semibold text-sm">Fresh Guarantee</h4>
@@ -194,8 +186,8 @@
                         </div>
                     </div>
                     <div class="flex flex-col items-center text-center gap-3">
-                        <div class="w-14 h-14 rounded-full bg-brand-green/10 flex items-center justify-center">
-                            <svg class="w-7 h-7 text-brand-green" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+                        <div class="w-14 h-14 rounded-full bg-brand-100 flex items-center justify-center">
+                            <svg class="w-7 h-7 text-brand-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
                         </div>
                         <div>
                             <h4 class="font-semibold text-sm">Easy Returns</h4>
@@ -298,7 +290,7 @@
                 html += '<button class="qty-plus w-9 h-9 rounded-lg border border-gray-300 dark:border-gray-600 flex items-center justify-center hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors font-bold text-lg" data-id="' + item.id + '" data-action="plus">+</button>';
                 html += '</div>';
                 html += '<div class="text-right min-w-[80px]">';
-                html += '<p class="font-bold text-brand-green text-lg">' + fmt(lineTotal) + '</p>';
+                html += '<p class="font-bold text-brand-600 text-lg">' + fmt(lineTotal) + '</p>';
                 html += '</div>';
                 html += '<button class="remove-btn w-9 h-9 rounded-full bg-red-100 dark:bg-red-900/30 text-red-500 hover:bg-red-200 dark:hover:bg-red-900/50 flex items-center justify-center transition-colors" data-id="' + item.id + '">';
                 html += '<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>';
@@ -446,8 +438,8 @@
                 html += '</div>';
                 html += '<div class="p-4">';
                 html += '<h4 class="font-semibold text-sm md:text-base truncate mb-1">' + p.name + '</h4>';
-                html += '<p class="text-brand-green font-bold mb-3">' + fmt(p.price) + '</p>';
-                html += '<button class="related-add-btn w-full bg-brand-green hover:bg-brand-green-dark text-white text-sm font-semibold py-2.5 rounded-xl transition-all duration-300" data-id="' + p.id + '" data-price="' + p.price + '">Add to Cart</button>';
+                html += '<p class="text-brand-600 font-bold mb-3">' + fmt(p.price) + '</p>';
+                html += '<button class="related-add-btn w-full bg-brand-600 hover:bg-brand-700 text-white text-sm font-semibold py-2.5 rounded-xl transition-all duration-300" data-id="' + p.id + '" data-price="' + p.price + '">Add to Cart</button>';
                 html += '</div>';
                 html += '</div>';
             });
