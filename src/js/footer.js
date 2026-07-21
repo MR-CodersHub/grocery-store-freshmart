@@ -48,11 +48,12 @@ const FreshMartFooter = (() => {
         <div>
           <h4 class="text-white font-semibold mb-4">Shop</h4>
           <ul class="space-y-2 text-sm">
-            <li><a href="${base}public/pages/services.html" class="hover:text-white transition">Produce</a></li>
-            <li><a href="${base}public/pages/services.html" class="hover:text-white transition">Dairy & Eggs</a></li>
-            <li><a href="${base}public/pages/services.html" class="hover:text-white transition">Bakery</a></li>
-            <li><a href="${base}public/pages/services.html" class="hover:text-white transition">Beverages</a></li>
-            <li><a href="${base}public/pages/services.html" class="hover:text-white transition">Pantry</a></li>
+            <li><a href="${base}public/pages/products.html" class="hover:text-white transition">All Products</a></li>
+            <li><a href="${base}public/pages/category.html?cat=produce" class="hover:text-white transition">Produce</a></li>
+            <li><a href="${base}public/pages/category.html?cat=dairy" class="hover:text-white transition">Dairy & Eggs</a></li>
+            <li><a href="${base}public/pages/category.html?cat=bakery" class="hover:text-white transition">Bakery</a></li>
+            <li><a href="${base}public/pages/category.html?cat=beverages" class="hover:text-white transition">Beverages</a></li>
+            <li><a href="${base}public/pages/cart.html" class="hover:text-white transition">Cart</a></li>
           </ul>
         </div>
         <div>

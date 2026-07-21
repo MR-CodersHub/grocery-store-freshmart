@@ -41,7 +41,7 @@
           }">${p.tag}</span>`
         : '';
       return `
-        <article class="product-card relative bg-white dark:bg-gray-800 rounded-2xl border border-gray-100 dark:border-gray-700 overflow-hidden" data-name="${p.name.toLowerCase()}" data-category="${p.category}">
+        <article class="product-card relative bg-white dark:bg-gray-800 rounded-2xl border border-gray-100 dark:border-gray-700 overflow-hidden" data-id="${p.id}" data-name="${p.name.toLowerCase()}" data-category="${p.category}">
           ${tagHTML}
           <div class="aspect-square overflow-hidden bg-gray-50 dark:bg-gray-700">
             <img src="${p.img}" alt="${p.name}" loading="lazy" class="product-image w-full h-full object-cover" />
@@ -91,23 +91,18 @@
     });
 
     // ─── ADD TO CART ───
-    const cartCountEl = $('#cart-count');
-    let cartCount = 0;
-    const bumpCart = () => {
-      cartCount += 1;
-      if (cartCountEl) {
-        cartCountEl.textContent = String(cartCount);
-        cartCountEl.animate(
-          [{ transform: 'scale(1)' }, { transform: 'scale(1.4)' }, { transform: 'scale(1)' }],
-          { duration: 300, easing: 'ease-out' }
-        );
-      }
-    };
-
     grid.addEventListener('click', (e) => {
       const btn = e.target.closest('.add-to-cart');
       if (!btn) return;
-      bumpCart();
+      const card = btn.closest('.product-card');
+      if (!card) return;
+      const productId = parseInt(card.dataset.id, 10);
+      if (!productId) return;
+
+      if (typeof FreshMartCart !== 'undefined') {
+        FreshMartCart.addItem(productId);
+      }
+
       const original = btn.innerHTML;
       btn.innerHTML = '✓ Added';
       btn.classList.add('bg-brand-700');

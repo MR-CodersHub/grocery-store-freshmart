@@ -19,15 +19,7 @@ const FreshMartNavbar = (() => {
     if (!container) return;
 
     const promoBar = `
-    <div class="bg-brand-600 dark:bg-brand-800 text-white text-sm">
-      <div class="max-w-7xl mx-auto px-4 py-2 flex flex-wrap items-center justify-center gap-x-6 gap-y-1 text-center">
-        <span>🚚 Free delivery on orders over <strong>$40</strong></span>
-        <span class="hidden sm:inline opacity-80">|</span>
-        <span>🌿 100% fresh guarantee</span>
-        <span class="hidden md:inline opacity-80">|</span>
-        <span class="hidden md:inline">Use code <strong>FRESH30</strong> for 30% off</span>
-      </div>
-    </div>`;
+    `;
 
     const header = `
     <header id="site-header" class="sticky top-0 z-40 bg-white/90 dark:bg-gray-900/90 backdrop-blur border-b border-gray-100 dark:border-gray-800">
@@ -45,7 +37,7 @@ const FreshMartNavbar = (() => {
           <a href="${base}index.html" class="hover:text-brand-600 transition">Home</a>
           <a href="${base}public/pages/home-2.html" class="hover:text-brand-600 transition">Home 2</a>
           <a href="${base}public/pages/about.html" class="hover:text-brand-600 transition">About</a>
-          <a href="${base}public/pages/services.html" class="hover:text-brand-600 transition">Products</a>
+          <a href="${base}public/pages/products.html" class="hover:text-brand-600 transition">Products</a>
           <a href="${base}public/pages/blog.html" class="hover:text-brand-600 transition">Blog</a>
           <a href="${base}public/pages/contact.html" class="hover:text-brand-600 transition">Contact</a>
         </nav>
@@ -91,12 +83,12 @@ const FreshMartNavbar = (() => {
             </div>
           </div>
 
-          <button id="cart-btn" class="relative grid place-items-center w-10 h-10 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition" aria-label="Cart">
+          <a href="${base}public/pages/cart.html" id="cart-btn" class="relative grid place-items-center w-10 h-10 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition" aria-label="Cart">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-gray-600 dark:text-gray-300" aria-hidden="true">
               <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.7 13.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L23 6H6"/>
             </svg>
             <span id="cart-count" class="absolute -top-0.5 -right-0.5 min-w-[18px] h-[18px] px-1 grid place-items-center rounded-full bg-brand-600 text-white text-[10px] font-bold">0</span>
-          </button>
+          </a>
 
           <button id="menu-btn" class="lg:hidden grid place-items-center w-10 h-10 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition" aria-label="Open menu" aria-expanded="false">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-gray-600 dark:text-gray-300" aria-hidden="true">
@@ -111,7 +103,7 @@ const FreshMartNavbar = (() => {
           <a href="${base}index.html" class="px-3 py-2 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 text-gray-700 dark:text-gray-200">Home</a>
           <a href="${base}public/pages/home-2.html" class="px-3 py-2 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 text-gray-700 dark:text-gray-200">Home 2</a>
           <a href="${base}public/pages/about.html" class="px-3 py-2 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 text-gray-700 dark:text-gray-200">About</a>
-          <a href="${base}public/pages/services.html" class="px-3 py-2 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 text-gray-700 dark:text-gray-200">Services</a>
+          <a href="${base}public/pages/products.html" class="px-3 py-2 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 text-gray-700 dark:text-gray-200">Products</a>
           <a href="${base}public/pages/blog.html" class="px-3 py-2 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 text-gray-700 dark:text-gray-200">Blog</a>
           <a href="${base}public/pages/pricing.html" class="px-3 py-2 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 text-gray-700 dark:text-gray-200">Pricing</a>
           <a href="${base}public/pages/contact.html" class="px-3 py-2 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 text-gray-700 dark:text-gray-200">Contact</a>
@@ -159,6 +151,23 @@ const FreshMartNavbar = (() => {
           menuBtn.setAttribute('aria-expanded', 'false');
         }
       });
+    }
+
+    // Sync cart count from localStorage
+    if (typeof FreshMartCart !== 'undefined') {
+      const cartCountEl = document.getElementById('cart-count');
+      if (cartCountEl) {
+        cartCountEl.textContent = String(FreshMartCart.getCount());
+        FreshMartCart.onUpdate(function (count) {
+          cartCountEl.textContent = String(count);
+          if (count > 0) {
+            cartCountEl.animate(
+              [{ transform: 'scale(1)' }, { transform: 'scale(1.4)' }, { transform: 'scale(1)' }],
+              { duration: 300, easing: 'ease-out' }
+            );
+          }
+        });
+      }
     }
   }
 
