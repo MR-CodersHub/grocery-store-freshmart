@@ -42,56 +42,91 @@
 
     <main id="top">
       <!-- HERO -->
-      <section class="relative overflow-hidden bg-gradient-to-br from-cream via-white to-brand-50 dark:from-gray-900 dark:via-gray-900 dark:to-gray-800">
-        <div class="max-w-7xl mx-auto px-4 py-16 md:py-24 grid md:grid-cols-2 gap-10 items-center">
-          <div class="reveal">
-            <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-100 dark:bg-brand-900/40 text-brand-700 dark:text-brand-400 text-xs font-semibold mb-4">
-              <span class="w-1.5 h-1.5 rounded-full bg-brand-600"></span> Farm-fresh, every day
+      <section class="relative overflow-hidden min-h-[90vh] flex items-center">
+        <!-- Full-bleed background image -->
+        <div class="absolute inset-0">
+          <img
+            src="./assets/img/hero-bg.png"
+            alt="Fresh groceries and vegetables"
+            class="w-full h-full object-fill object-right"
+            loading="eager"
+          />
+          </div>
+
+        <!-- Content — anchored to the left (empty green space in the image) -->
+        <div class="relative z-10 max-w-7xl mx-auto px-4 py-20 md:py-28 w-full">
+          <div class="max-w-xl reveal">
+
+            <!-- Eyebrow badge -->
+            <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/15 backdrop-blur-sm border border-white/25 text-white text-xs font-semibold mb-6 tracking-wide">
+              <span class="w-2 h-2 rounded-full bg-brand-400 animate-pulse"></span>
+              Farm-fresh · Delivered daily
             </span>
-            <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight">
-              Fresh groceries, <span class="text-brand-600">delivered</span> to your door.
+
+            <!-- Headline -->
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight text-white drop-shadow-sm">
+              Fresh groceries,
+              <span class="block text-brand-400 mt-1">delivered to your door.</span>
             </h1>
-            <p class="mt-5 text-lg text-gray-600 dark:text-gray-400 max-w-lg">
+
+            <!-- Sub-copy -->
+            <p class="mt-5 text-base md:text-lg text-white/85 leading-relaxed max-w-md">
               Hand-picked produce, quality dairy, fresh-baked bread and pantry staples — sourced from local farms and delivered in under an hour.
             </p>
-            <div class="mt-7 flex flex-wrap gap-3">
-              <a href="#categories" class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-brand-600 hover:bg-brand-700 text-white font-semibold shadow-soft transition btn-pop">
+
+            <!-- CTA buttons -->
+            <div class="mt-8 flex flex-wrap gap-3">
+              <a href="#categories" class="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-brand-500 hover:bg-brand-600 text-white font-bold shadow-soft transition-all duration-300 btn-pop text-sm">
                 Shop Now
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
               </a>
-              <a href="#deals" class="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-gray-300 dark:border-gray-600 hover:border-brand-600 hover:text-brand-700 font-semibold transition btn-pop">
+              <a href="#deals" class="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-white/15 backdrop-blur-sm border border-white/30 hover:bg-white/25 text-white font-semibold transition-all duration-300 btn-pop text-sm">
                 Browse Deals
               </a>
             </div>
-            <div class="mt-10 flex items-center gap-6 text-sm text-gray-600 dark:text-gray-400">
-              <div class="flex -space-x-2">
-                <div class="w-9 h-9 rounded-full bg-amber-200 border-2 border-white dark:border-gray-900"></div>
-                <div class="w-9 h-9 rounded-full bg-pink-200 border-2 border-white dark:border-gray-900"></div>
-                <div class="w-9 h-9 rounded-full bg-sky-200 border-2 border-white dark:border-gray-900"></div>
-                <div class="w-9 h-9 rounded-full bg-brand-200 border-2 border-white dark:border-gray-900"></div>
+
+            <!-- Trust badges -->
+            <div class="mt-10 flex flex-wrap items-center gap-6">
+              <!-- Avatar stack -->
+              <div class="flex items-center gap-3">
+                <div class="flex -space-x-2">
+                  <img src="./assets/img/buyer1.jpg" alt="" class="w-9 h-9 rounded-full object-cover border-2 border-white/60" />
+                  <img src="./assets/img/buyer2.jpg" alt="" class="w-9 h-9 rounded-full object-cover border-2 border-white/60" />
+                  <img src="./assets/img/buyer3.jpg" alt="" class="w-9 h-9 rounded-full object-cover border-2 border-white/60" />
+                  <div class="w-9 h-9 rounded-full bg-brand-500 border-2 border-white/60 grid place-items-center text-white text-[10px] font-bold">+</div>
+                </div>
+                <div class="text-white/90 text-sm">
+                  <div class="font-bold text-white">12,000+</div>
+                  <div class="text-xs text-white/70">happy customers</div>
+                </div>
               </div>
-              <div>
-                <div class="font-bold text-ink">12,000+</div>
-                <div>happy customers</div>
+
+              <!-- Divider -->
+              <div class="h-8 w-px bg-white/20 hidden sm:block"></div>
+
+              <!-- Rating -->
+              <div class="text-white/90 text-sm">
+                <div class="flex items-center gap-1 font-bold text-white">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbf24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                  4.9 / 5.0
+                </div>
+                <div class="text-xs text-white/70">3,000+ reviews</div>
+              </div>
+
+              <!-- Divider -->
+              <div class="h-8 w-px bg-white/20 hidden sm:block"></div>
+
+              <!-- Free delivery -->
+              <div class="text-white/90 text-sm">
+                <div class="font-bold text-white flex items-center gap-1">Free delivery</div>
+                <div class="text-xs text-white/70">on orders over $40</div>
               </div>
             </div>
-          </div>
-          <div class="relative reveal">
-            <div class="hero-blob aspect-square w-full max-w-md mx-auto relative">
-              <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?w=900&q=80" alt="A basket full of fresh vegetables and fruits" class="absolute inset-0 w-full h-full object-cover rounded-full shadow-soft" loading="eager" />
-              <div class="absolute -left-4 top-10 bg-white dark:bg-gray-800 shadow-soft rounded-2xl px-3 py-2 flex items-center gap-2 text-sm font-semibold animate-float">
-                <span class="text-2xl">🥑</span> Organic
-              </div>
-              <div class="absolute -right-2 top-1/3 bg-white dark:bg-gray-800 shadow-soft rounded-2xl px-3 py-2 flex items-center gap-2 text-sm font-semibold animate-float" style="animation-delay:.4s">
-                <span class="text-2xl">🥕</span> Fresh
-              </div>
-              <div class="absolute left-6 -bottom-2 bg-white dark:bg-gray-800 shadow-soft rounded-2xl px-3 py-2 flex items-center gap-2 text-sm font-semibold animate-float" style="animation-delay:.8s">
-                <span class="text-2xl">🍎</span> Local
-              </div>
-            </div>
+
           </div>
         </div>
       </section>
+
 
       <!-- VALUE PROPS -->
       <section class="border-y border-gray-100 dark:border-gray-800 bg-white dark:bg-gray-900">
