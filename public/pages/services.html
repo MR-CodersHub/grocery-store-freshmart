@@ -270,6 +270,7 @@
             '</a>';
           });
           container.innerHTML = html;
+          if (typeof window.initReveal === 'function') { window.initReveal(); }
         }
 
         // ── Filter buttons ──
@@ -320,6 +321,8 @@
           });
           testimonialsContainer.innerHTML = testimonialsHTML;
         }
+
+        if (typeof window.initReveal === 'function') { window.initReveal(); }
       });
     </script>
   </body>

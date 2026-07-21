@@ -202,7 +202,7 @@
         const popularPosts = document.getElementById('popular-posts');
         const topPosts = BLOG_POSTS.slice(0, 4);
         popularPosts.innerHTML = topPosts.map((post, i) => `
-          <a href="${base}public/pages/blog-details.html?id=${post.id}" class="flex gap-4 group">
+          <a href="blog-details.html?id=${post.id}" class="flex gap-4 group">
             <span class="text-3xl font-extrabold text-brand-200 dark:text-brand-800 leading-none mt-1">${String(i + 1).padStart(2, '0')}</span>
             <div>
               <h4 class="font-semibold text-sm text-gray-900 dark:text-white leading-snug group-hover:text-brand-600 dark:group-hover:text-brand-400 transition line-clamp-2">${post.title}</h4>

@@ -136,7 +136,9 @@
 
   // ─── SCROLL REVEAL ───
   const initReveal = () => {
-    const revealEls = $$('.reveal');
+    const revealEls = $$('.reveal:not(.is-visible)');
+    if (!revealEls.length) return;
+
     if ('IntersectionObserver' in window) {
       const io = new IntersectionObserver(
         (entries) => {
@@ -147,13 +149,22 @@
             }
           });
         },
-        { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
+        { threshold: 0.05, rootMargin: '50px 0px 50px 0px' }
       );
-      revealEls.forEach((el) => io.observe(el));
+      revealEls.forEach((el) => {
+        const rect = el.getBoundingClientRect();
+        const vh = window.innerHeight || document.documentElement.clientHeight;
+        if (rect.top < vh && rect.bottom > 0) {
+          el.classList.add('is-visible');
+        } else {
+          io.observe(el);
+        }
+      });
     } else {
       revealEls.forEach((el) => el.classList.add('is-visible'));
     }
   };
+  window.initReveal = initReveal;
   initReveal();
 
   // ─── TOAST NOTIFICATION ───
