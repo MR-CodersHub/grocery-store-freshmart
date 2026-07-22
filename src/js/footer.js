@@ -80,7 +80,7 @@ const FreshMartFooter = (() => {
       <div class="border-t border-white/10">
         <div class="max-w-7xl mx-auto px-4 py-5 flex flex-wrap items-center justify-between gap-2 text-xs text-gray-400">
           <span>&copy; 2026 FreshMart. All rights reserved.</span>
-          <span>Made with 🌱 for fresh food lovers.</span>
+          <span>Made with <svg class="w-4 h-4 inline-block text-brand-400 align-text-bottom -mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9 9 0 01-9-9c0-4.97 3.582-9 8-9 4.97 0 9 4.03 9 9 0 2.12-.74 4.07-1.97 5.61L12 21z"/><path stroke-linecap="round" stroke-linejoin="round" d="M12 21V11"/></svg> for fresh food lovers.</span>
         </div>
       </div>
     </footer>`;

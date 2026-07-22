@@ -67,7 +67,7 @@
           <div class="relative reveal">
             <img src="https://images.unsplash.com/photo-1488459716781-31db52582fe9?w=900&q=80" alt="Farmers in a field with fresh vegetables" class="rounded-3xl shadow-soft w-full object-cover aspect-[4/3]" />
             <div class="absolute -bottom-6 -left-6 bg-white dark:bg-gray-800 rounded-2xl shadow-soft p-4 max-w-[220px]">
-              <div class="text-sm font-semibold text-ink">🌱 From our founder</div>
+              <div class="text-sm font-semibold text-ink flex items-center gap-1.5"><svg class="w-4 h-4 text-brand-600 dark:text-brand-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9 9 0 01-9-9c0-4.97 3.582-9 8-9 4.97 0 9 4.03 9 9 0 2.12-.74 4.07-1.97 5.61L12 21z"/><path stroke-linecap="round" stroke-linejoin="round" d="M12 21V11"/></svg> From our founder</div>
               <p class="text-xs text-gray-600 dark:text-gray-400 mt-1">"Good food shouldn't be a privilege. It should be a right."</p>
             </div>
           </div>
@@ -284,15 +284,13 @@
         if (teamGrid && typeof FreshMartData !== 'undefined' && FreshMartData.TEAM_MEMBERS) {
           var teamHTML = '';
           FreshMartData.TEAM_MEMBERS.forEach(function (member) {
-            teamHTML += '<div class="bg-cream dark:bg-gray-800 rounded-3xl overflow-hidden text-center reveal">' +
-              '<div class="relative h-48 overflow-hidden">' +
-                '<img src="' + member.img + '" alt="' + member.name + '" class="w-full h-full object-fill hover:scale-105 transition duration-500" loading="lazy" />' +
+            teamHTML += '<div class="group bg-white dark:bg-gray-800 rounded-3xl p-6 text-center border border-gray-100 dark:border-gray-700/60 shadow-sm hover:shadow-soft transition-all duration-300 reveal flex flex-col items-center">' +
+              '<div class="relative w-36 h-36 mb-5 rounded-full p-1 bg-gradient-to-tr from-brand-400 via-brand-500 to-amber-400 shadow-md group-hover:scale-105 transition-transform duration-500">' +
+                '<img src="' + member.img + '" alt="' + member.name + '" class="w-full h-full object-fill object-center rounded-full bg-white dark:bg-gray-700" loading="lazy" />' +
               '</div>' +
-              '<div class="p-5">' +
-                '<h4 class="font-bold text-lg">' + member.name + '</h4>' +
-                '<p class="text-sm text-brand-600 font-medium">' + member.role + '</p>' +
-                '<p class="mt-2 text-sm text-gray-600 dark:text-gray-400 leading-relaxed">' + member.bio + '</p>' +
-              '</div>' +
+              '<h4 class="font-extrabold text-lg text-ink dark:text-white tracking-tight">' + member.name + '</h4>' +
+              '<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-50 dark:bg-brand-900/40 text-brand-700 dark:text-brand-300 text-xs font-semibold mt-1.5 mb-3">' + member.role + '</span>' +
+              '<p class="text-xs text-gray-600 dark:text-gray-400 leading-relaxed max-w-xs flex-1">' + member.bio + '</p>' +
             '</div>';
           });
           teamGrid.innerHTML = teamHTML;
